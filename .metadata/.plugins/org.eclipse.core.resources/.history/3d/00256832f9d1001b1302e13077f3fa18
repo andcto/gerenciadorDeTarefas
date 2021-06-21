@@ -1,0 +1,46 @@
+package br.com.sistema.controller;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import br.com.sistema.model.Tarefa;
+
+@Named ("bean")
+@RequestScoped
+public class TarefaMB implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private Tarefa tarefa;
+	
+	private List<Tarefa> tarefas = new ArrayList<Tarefa>();
+	
+	public String adicionar() {
+		
+		tarefas.add(tarefa);
+		limpar();
+		return null;
+	}
+	public Tarefa getTarefa() {
+		return tarefa;
+	}
+	public void setTarefa(Tarefa tarefa) {
+		this.tarefa = tarefa;
+	}
+	public List<Tarefa> getTarefas() {
+		return tarefas;
+	}
+	public void setTarefas(List<Tarefa> tarefas) {
+		this.tarefas = tarefas;
+	}
+	public void limpar() {
+		tarefa = new Tarefa();
+	}
+	
+}

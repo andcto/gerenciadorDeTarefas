@@ -1,0 +1,81 @@
+package br.com.sistema.model;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+import javax.annotation.PostConstruct;
+
+public class Tarefa implements Serializable{
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	private static final long serialVersionUID = 1L;
+
+	private Integer id;
+	private String titulo;
+	private String descricao;
+	private String responsavel;
+	private String prioridade;
+	private String deadline;
+	
+	@PostConstruct
+	public void init() {
+		Tarefa tarefa = new Tarefa();
+	}
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Tarefa other = (Tarefa) obj;
+		return Objects.equals(id, other.id);
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public String getResponsavel() {
+		return responsavel;
+	}
+	public void setResponsavel(String responsavel) {
+		this.responsavel = responsavel;
+	}
+	public String getPrioridade() {
+		return prioridade;
+	}
+	public void setPrioridade(String prioridade) {
+		this.prioridade = prioridade;
+	}
+	public String getDeadline() {
+		return deadline;
+	}
+	public void setDeadline(String deadline) {
+		this.deadline = deadline;
+	}
+	
+	
+}

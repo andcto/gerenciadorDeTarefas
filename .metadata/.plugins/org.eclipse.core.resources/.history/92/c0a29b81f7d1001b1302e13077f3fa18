@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro</title>
+</h:head>
+<h:body>
+	<h1>Cadastrar Tarefa</h1>
+	<h:form>
+		<h:panelGrid columns="2">
+		Titulo <h:inputText value="#{bean.tarefa.titulo}"/>
+		Descrição <h:inputTextarea value="#{bean.tarefa.descricao}"/>
+		Responsavel
+		<h:selectOneMenu value="#{bean.tarefa.responsavel}">
+				<f:selectItem itemValue="Joao" itemLabel="Joao" />
+				<f:selectItem itemValue="Maria" itemLabel="Maria" />
+				<f:selectItem itemValue="Jose" itemLabel="Jose" />
+			</h:selectOneMenu>
+		Prioridade
+		<h:selectOneMenu value="#{bean.tarefa.prioridade}">
+				<f:selectItem itemLabel="Alta" itemValue="Alta" />
+				<f:selectItem itemLabel="Normal" itemValue="Normal" />
+			</h:selectOneMenu>	
+		Deadline <h:inputText value="#{bean.tarefa.deadline}" />
+			<h:commandButton value="Cadastrar" action="#{bean.adicionar}"/>
+		</h:panelGrid>
+	</h:form>
+
+	<h1>Lista de Tarefas</h1>
+	<h:dataTable value="#{bean.tarefas}" var="t" border="1">
+		<h:column title="Titulo">#{t.titulo}</h:column>
+		<h:column title="Responsavel">#{t.responsavel}</h:column>
+		<h:column title="Descrição">#{t.descricao}</h:column>
+		<h:column title="Prioridade">#{t.prioridade}</h:column>
+		<h:column title="Deadline">#{t.deadline}</h:column>
+	</h:dataTable>
+		
+</h:body>
+</html>

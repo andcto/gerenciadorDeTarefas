@@ -1,0 +1,28 @@
+package br.com.sistema.controller;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import br.com.sistema.model.Tarefa;
+import br.com.sistema.service.SistemaService;
+
+@Named
+@ViewScoped
+public class TarefaMB implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private Tarefa tarefa;
+	
+	@Inject
+	private SistemaService service;
+	
+	private List<Tarefa> tarefas;
+	
+	public void carregar();
+}
